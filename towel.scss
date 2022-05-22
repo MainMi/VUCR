@@ -91,88 +91,82 @@ header {
     }
 }
 
-.weapon {
+.towel {
     position: relative;
     display: flex;
-    padding-top: 60px;
+    padding: 80px 20px 0 20px ;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    .content {
-        position: relative;
-        width: 100%;
-        height: 100%;
+    
+    .text {
         display: flex;
-        padding: 25px;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        .text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        h2 {
-            color: #111;
-            font-size: 2em;
-        }
-        .collumBox {
-            padding: 25px;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: center;
-            .contentBox {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: left;
-                justify-content: center;
-                background-color: rgb(238, 237, 237);
-                width: 250px;
-                min-height: 250px;
-                border: solid 15px rgb(238, 237, 237);
-                border-radius: 10px;
-                box-shadow: 0px 0px 10px 3px rgba(0,0,0,0.2);
-                margin: 20px 30px;
-                z-index: 120;
+        padding-top: 50px;
+    }
+    .container {
+        position: relative;
+        width: 100%;
+        margin: 100px auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 0 150px;
+        .card {
+            position: relative;
+            width: 300px;
+            height: 400px;
+            background-color: #fff;
+            margin: 25px;
+            transform-style: preserve-3d;
+            transform: perspective(2000px);
+            transition: 0.5s;
+            box-shadow: inset 300px 0 50px rgba(0,0,0,0.3);
+            &:hover {
+                z-index: 900;
+                transform: perspective(2000px) rotate(-10deg);
+                box-shadow: inset 20px 0 50px rgba(0,0,0,0.5);
+                .imgBox {
+                    transform: rotateY(-135deg);
+                }
+            }
+            .imgBox {
+                position: relative;
+                width: 100%;
+                height: 100%;
+                
+                transform-origin: left;
+                z-index: 1;
                 transition: 1s;
-                &:hover {
-                    transform: scale(1.1);
+                img {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
                 }
+            }
+            .textBox {
+                position: absolute;
+                top: 0;
+                left: 0;
+                box-sizing: border-box;
+                padding: 20px;
                 h2 {
-                    font-size: 1.5em;
-                }
-                h4 {
                     color: #111;
                 }
                 p {
                     color: #111;
-                    padding-top: 10px;
-                }
-                .imgBox {
-                    position: relative;
-                    
-                    width: 125px;
-                    height: 125px;
-                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-                    margin-bottom: 15px;
-                    border-radius: 10px;
-                    img {
-                        position: relative;
-                        border-radius: 10px;
-                        
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        transition: 0.5s;
-                        
-                    }
                 }
             }
         }
     }
+    
 }
 
-@media (max-width: 991px) {
+@media (max-width:991px) {
     header {
         h2 {
             padding: 10px 0;
@@ -213,9 +207,11 @@ header {
         }
 
     }
-
-    .weapon {
-        padding-top: 80px;
+    .towel {
+        .container {
+            padding: 20px;
+            
+        }
     }
 
 }
